@@ -2,19 +2,19 @@ import React from 'react';
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 import { Header } from './components/Header';
-import { UserList } from './components/UserList';
+import { Users } from './components/Users';
 
 export const App = () => (
-  <div>
-    <div>
-      <Header />
+  <div className="App">
+    <Header />
 
+    <div className="App__content">
       <Switch>
         <Route path="/users">
-          <UserList />
+          <Users />
         </Route>
         <Route path="/">
-          <div>Home page</div>
+          <h3>This is home page. To see list of users go to users page</h3>
         </Route>
       </Switch>
     </div>

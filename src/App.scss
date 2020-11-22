@@ -1,8 +1,23 @@
-.nav {
-  display: flex;
-  margin: 20px;
+* {
+  box-sizing: border-box;
+}
 
-  * {
-    margin-right: 10px;
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  &__content {
+    padding: 20px;
   }
 }

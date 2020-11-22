@@ -2,6 +2,9 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { PaginationButton } from '../PaginationButton/PaginationButton';
+import { PaginationPageButton }
+  from '../PaginationPageButton/PaginationPageButton';
 
 import './Pagination.scss';
 
@@ -9,7 +12,10 @@ export const Pagination = React.memo(
   ({
     totalElements,
     elementsPerPage,
-    selectedPage,
+    currentPage,
+    changePage,
+    selectNextPage,
+    selectPreviousPage,
   }) => {
     const pagesAmount = Math.ceil(totalElements / elementsPerPage);
     const pages = [];
@@ -19,36 +25,29 @@ export const Pagination = React.memo(
     }
 
     console.log(pages);
+    console.log(currentPage);
 
     return (
       <nav className="Pagination">
         <ul className="Pagination__list">
-          <li className="Pagination__item">
-            <button
-              type="button"
-              className="Pagination__button"
-            >
-              Previous
-            </button>
-          </li>
+          <PaginationButton
+            text="Previous"
+            handleClick={selectPreviousPage}
+            isDisabled={currentPage === 1}
+          />
           {pages.map(page => (
-            <li key={page}>
-              <button
-                type="button"
-                className="Pagination__button"
-              >
-                {page}
-              </button>
-            </li>
+            <PaginationPageButton
+              key={page}
+              pageNumber={page}
+              handleClick={changePage}
+              isActive={page === currentPage}
+            />
           ))}
-          <li>
-            <button
-              type="button"
-              className="Pagination__button"
-            >
-              Next
-            </button>
-          </li>
+          <PaginationButton
+            text="Next"
+            handleClick={selectNextPage}
+            isDisabled={currentPage === pagesAmount}
+          />
         </ul>
       </nav>
     );

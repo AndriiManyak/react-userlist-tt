@@ -1,5 +1,21 @@
 .Pagination {
   &__list {
     display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-weight: bold;
+
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+
+    &--active {
+      background-color: silver;
+    }
   }
 }

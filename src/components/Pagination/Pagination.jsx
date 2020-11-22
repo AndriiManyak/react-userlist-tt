@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { PaginationButton } from '../PaginationButton/PaginationButton';
 import { PaginationPageButton }
   from '../PaginationPageButton/PaginationPageButton';
@@ -23,9 +21,6 @@ export const Pagination = React.memo(
     for (let i = 1; i <= pagesAmount; i += 1) {
       pages.push(i);
     }
-
-    console.log(pages);
-    console.log(currentPage);
 
     return (
       <nav className="Pagination">
@@ -53,3 +48,12 @@ export const Pagination = React.memo(
     );
   },
 );
+
+Pagination.propTypes = {
+  totalElements: PropTypes.number.isRequired,
+  elementsPerPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  changePage: PropTypes.func.isRequired,
+  selectNextPage: PropTypes.func.isRequired,
+  selectPreviousPage: PropTypes.func.isRequired,
+};

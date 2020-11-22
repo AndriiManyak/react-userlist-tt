@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export const PaginationPageButton = ({
@@ -23,3 +22,9 @@ export const PaginationPageButton = ({
     </button>
   </li>
 );
+
+PaginationPageButton.propTypes = {
+  pageNumber: PropTypes.number.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};

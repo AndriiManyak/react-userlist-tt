@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+import './User.scss';
 
 export const User = ({ name, surname, desc }) => (
   <div className="User">
@@ -7,3 +8,9 @@ export const User = ({ name, surname, desc }) => (
     <p className="User__description">{desc}</p>
   </div>
 );
+
+User.propTypes = {
+  name: PropTypes.string.isRequired,
+  surname: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+};

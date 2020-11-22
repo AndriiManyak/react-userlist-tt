@@ -15,6 +15,7 @@ export const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(5);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState(false);
 
   useEffect(() => {
     getUsersFromServer();
@@ -29,9 +30,14 @@ export const Users = () => {
 
   const getUsersFromServer = async() => {
     setIsLoading(true);
-    const dataFromServer = await request();
+    try {
+      const dataFromServer = await request();
 
-    dispatch(actions.save(dataFromServer.users));
+      dispatch(actions.save(dataFromServer.users));
+    } catch (error) {
+      setLoadingError(true);
+    }
+
     setIsLoading(false);
   };
 
@@ -54,9 +60,20 @@ export const Users = () => {
   return (
     <div className="Users">
       {isLoading && (<h2>...Loading</h2>)}
+
+      {(loadingError && !users)
+        && (
+          <h3 className="Users__error">An error occured when loading users</h3>
+        )
+      }
+
       {(users && !isLoading) && (
         <>
           <div className="Users__list">
+            {loadingError
+              && (<h3 className="Users__error">Can not load new users</h3>)
+            }
+
             <UserList
               users={users}
               currentPage={currentPage}

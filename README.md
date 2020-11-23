@@ -1,4 +1,4 @@
-# React--userlist-tt
+# React-userlist-tt
 - [DEMO](https://andriimanyak.github.io/react-userlist-tt/)
 
 ## Local deployment

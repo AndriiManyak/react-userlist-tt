@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import request from '../../api/api';
@@ -69,13 +68,9 @@ export const Users = () => {
         )
       }
 
-      {(users && !isLoading) && (
+      {(users.length > 0 && !isLoading) && (
         <>
           <div className="Users__list">
-            {loadingError
-              && (<h3 className="Users__error">Can not load new users</h3>)
-            }
-
             <UserList
               currentPage={currentPage}
               usersPerPage={usersPerPage}

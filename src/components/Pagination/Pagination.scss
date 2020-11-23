@@ -1,0 +1,40 @@
+.Pagination {
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+
+    padding: 10px 15px;
+
+    font-weight: bold;
+    background-color: white;
+    color: rgba(27, 134, 244, 1);
+
+    transition: transform 0.5s;
+    cursor: pointer;
+
+    &--active {
+      background-color: rgba(27, 134, 244, 0.5);
+    }
+
+    &:hover {
+      background-color: rgba(27, 134, 244, 0.2);
+    }
+
+    &:focus {
+      padding: 9px 14px;
+      border: 2px solid rgba(27, 134, 244, 0.4);
+    }
+
+    &:disabled {
+      background-color: white;
+      color:silver;
+      cursor: default;
+      transform: scale(1);
+    }
+  }
+}

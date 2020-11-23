@@ -1,0 +1,12 @@
+.Users {
+  display: flex;
+
+  &__list {
+    margin-right: 10px;
+    width: 70%;
+  }
+
+  &__error {
+    color: #D1211B;
+  }
+}

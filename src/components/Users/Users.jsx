@@ -5,6 +5,7 @@ import request from '../../api/api';
 import { getUsers } from '../../store';
 import { actions } from '../../store/users';
 import { Pagination } from '../Pagination';
+import { Sidebar } from '../Sidebar';
 import { UserList } from '../UserList';
 
 import './Users.scss';
@@ -91,7 +92,9 @@ export const Users = () => {
           </div>
 
           <div>
-            S
+            <Sidebar
+              randomIndex={randomIndex}
+            />
           </div>
         </>
       )}

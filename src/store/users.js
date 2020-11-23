@@ -1,3 +1,5 @@
+import initialState from './initialState';
+
 const SAVE = 'users/SAVE';
 
 export const actions = {
@@ -7,7 +9,7 @@ export const actions = {
   }),
 };
 
-const usersReducer = (state = {}, action) => {
+const usersReducer = (state = initialState, action) => {
   if (action.type === SAVE) {
     return {
       ...state,

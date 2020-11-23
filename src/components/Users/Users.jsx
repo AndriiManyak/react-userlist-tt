@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import request from '../../api/api';
@@ -75,7 +76,6 @@ export const Users = () => {
             }
 
             <UserList
-              users={users}
               currentPage={currentPage}
               usersPerPage={usersPerPage}
             />
@@ -91,11 +91,7 @@ export const Users = () => {
           </div>
 
           <div>
-            <h3
-              className="User__name"
-            >
-              {`${users[randomIndex].name} ${users[randomIndex].surname}`}
-            </h3>
+            S
           </div>
         </>
       )}

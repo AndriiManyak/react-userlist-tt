@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { User } from '../User/User';
+import { getPaginatedUsers } from '../../store';
 
 export const UserList = React.memo(
   ({
-    users,
     currentPage,
     usersPerPage,
   }) => {
-    const indexOfLastUser = currentPage * usersPerPage;
-    const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+    const currentUsers = useSelector(
+      getPaginatedUsers(currentPage, usersPerPage),
+    );
 
     return (
       <>
@@ -31,7 +32,6 @@ export const UserList = React.memo(
 );
 
 UserList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentPage: PropTypes.number.isRequired,
   usersPerPage: PropTypes.number.isRequired,
 };
